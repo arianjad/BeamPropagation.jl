@@ -26,7 +26,6 @@ wy(z, trap::AsymmetricGaussianTrap) = trap.w0y * sqrt(1 + z^2 / trap.zRy^2)
 function U(r, trap::AsymmetricGaussianTrap)
     w0x, w0y, zRx, zRy = trap.w0x, trap.w0y, trap.zRx, trap.zRy
     x, y, z = r
-    
     wx = waist(z, w0x, zRx, 0)
     wy = waist(z, w0y, zRy, 0)
     return trap.U_max * (1 - ((w0x * w0y) / (wx * wy)) * exp(-2 * (x^2 / wx^2 + y^2 / wy^2)))
